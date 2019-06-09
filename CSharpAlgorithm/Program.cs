@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,13 @@ namespace CSharp
             //MaxtNumber();
             //result = FindAbsNumber();
             // FindLargeValue();
+            //MakeFileName()
             //result = CheckCharApprenace();
             //result = countOfTwoSubstring();
             //CreateIndexString();
             //result = CheckModulo();
             //result = CheckWhether();
+            //WriteFileName();
             //CheckRightmost();
             //ReverseArry();
             //result = ComputArryNums();
@@ -35,8 +38,11 @@ namespace CSharp
 
         }
 
+        /// <summary>
+        /// /Basics
+        /// </summary>
+        /// 
         // Write a C# Sharp program to create a new string of the characters at indexes 0,1, 4,5, 8,9 ... from a given string.
-
         private static void CreateIndexString()
         {
             Console.WriteLine("Please Enter Your string");
@@ -330,6 +336,134 @@ namespace CSharp
                 Console.Write(arrayResult[i]);
             }
         }
+
+        /// <summary>
+        /// /Files -------------------------------------------------------------------------------------
+        /// </summary>
+        
+
+        //Write a program in C# Sharp to create a blank file in the disk newly
+        //
+
+        public static void MakeFileName()
+        {
+            string fileName = @"E:\mytest3.txt";
+            try
+            {
+                Console.Write("\n\n Create a file named mytest.txt in the disk :\n");
+                Console.Write("------------------------------------------------\n");
+                // File.Create(fileName);
+                File.WriteAllText(@"E:\mytest.txt7", "Root");
+
+            }
+            catch (Exception MyExcep)
+            {
+                Console.WriteLine(MyExcep.ToString());
+            }
+
+        }
+
+        public static void WriteFileName()
+        {
+            string fileName = @"mytest2.txt";
+            try
+            {
+                File.Create(fileName);
+                var fs = new FileStream(@"C:\mytest2.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                StreamWriter writer = new StreamWriter(fs);
+                writer.Write("Hi.. This is the sample text file you have created using FileStream Class.");
+                writer.Close();
+                Console.Write("\n\n Create a file named mytest.txt in the disk :\n");
+                Console.Write("------------------------------------------------\n");
+                File.Create(fileName);
+                File.Create(@"D\:mytest.txt");
+
+            }
+            catch (Exception MyExcep)
+            {
+                Console.WriteLine(MyExcep.ToString());
+            }
+
+        }
+        /// <summary>
+        /// //Recursion -------------------------------------------------------------------------------
+        /// </summary>
+        // Write a program in C# Sharp to print the first n natural number using recursion
+        public static void NaturalNumbers(int init, int number)
+        {
+            if (init < number)
+            {
+                init++;
+                Console.WriteLine(init);
+                NaturalNumbers(init, number);
+            }
+            else
+            {
+                Console.WriteLine("Finish Natural Numbers");
+            }
+        }
+
+        static void NaturalNumbersReverse(int number)
+        {
+            if (number != 0)
+            {
+                number--;
+                Console.WriteLine(number);
+                NaturalNumbersReverse(number);
+            }
+            else
+            {
+                Console.WriteLine("Finish Natural Numbers Reverse");
+            }
+        }
+
+        public static int SumNumbersReverse(int number)
+        {
+            if (number == 0)
+            {
+                return number;
+            }
+            return number + SumNumbersReverse(number - 1);
+        }
+       // Write a program in C# Sharp to convert a decimal number to binary using recursion
+
+        public static int GetDigits(int n1, int nodigits)
+        {
+            if (n1 == 0)
+                return nodigits;
+
+            nodigits++;
+            return GetDigits(n1 / 10, nodigits);
+
+        }
+       // Write a program in C to print even or odd numbers in a given range using recursion
+
+        public static int OddAndEven(int initValue, int number)
+        {
+
+
+            if (initValue == number)
+            {
+                Console.WriteLine("Finish");
+
+                return 0;
+            }
+            initValue++;
+
+            if (initValue % 2 == 0)
+            {
+                Console.Write("ODD" + initValue);
+            }
+
+            if (initValue % 2 != 0)
+            {
+                Console.Write("Even" + initValue);
+            }
+
+            return OddAndEven(initValue, number);
+
+        }
+
 
     }
 }
