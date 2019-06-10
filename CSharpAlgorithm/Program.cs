@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -336,11 +337,146 @@ namespace CSharp
                 Console.Write(arrayResult[i]);
             }
         }
+        //Write a program in C# Sharp to read n number of 
+        //values in an array and display it in reverse order. Go to the editor
 
+        public static void ReverseArray()
+        {
+            int[] arr = new int[] { 2, 5, 7 };
+            int[] arr2 = new int[arr.Length];
+            int init = 0;
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                arr2[init] = arr[i];
+
+                if (init <= arr.Length)
+                {
+                    init++;
+                }
+                Console.WriteLine(arr[i]);
+            }
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                Console.WriteLine(arr2[i]);
+            }
+        }
+
+        //Write a program in C# Sharp to sort elements of array in ascending order. Go to the editor
+        //Test Data : 
+
+        public static void SortArray()
+        {
+            int[] arr = new[] { 2, 7, 4, 5, 9 };
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int temp = arr[i];
+
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[j] < arr[i])
+                    {
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+        }
+
+
+
+        public static void DateYear()
+        {
+            DateTime dec31 = new DateTime(2000, 12, 31);
+
+            for (int ctr = 0; ctr <= 20; ctr++)
+            {
+                DateTime dateToDisplay = dec31.AddYears(ctr);
+                Console.WriteLine("{0:d}: day {1} of {2} {3}", dateToDisplay,
+                    dateToDisplay.DayOfYear,
+                    dateToDisplay.Year,
+                    DateTime.IsLeapYear(dateToDisplay.Year) ? "(Leap Year)" : "");
+            }
+            Console.WriteLine(DateTime.UtcNow);
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTimeOffset.Now);
+            DateTime localDate = DateTime.Now;
+            DateTime utcDate = DateTime.UtcNow;
+            String[] cultureNames =
+            {
+                "en-IE", "en-ZA", "fr-CA",
+                "de-CH", "ro-RO"
+            };
+
+            foreach (var cultureName in cultureNames)
+            {
+                var culture = new CultureInfo(cultureName);
+                Console.WriteLine("{0}:", culture.NativeName);
+                Console.WriteLine("   Local date and time: {0}, {1:G}", localDate.ToString(culture), localDate.Kind);
+                Console.WriteLine("   UTC date and time: {0}, {1:G}\n",
+                    utcDate.ToString(culture), utcDate.Kind);
+            }
+        }
+
+        //Write a program in C# Sharp to merge two arrays of same size sorted in ascending order. Go to the editor
+        //    Test Data : 
+
+        public static void MergTwoArray()
+        {
+            int[] firstArr = new int[7] { 1, 4, 5, 6, 9, 3, 2 };
+            int[] twotArr = new int[7] { 18, 15, 17, 22, 18, 19, 33 };
+            List<int> threeArr = new List<int>();
+
+            for (int i = 0; i < firstArr.Length; i++)
+            {
+                threeArr.Add(firstArr[i]);
+            }
+
+            for (int i = 0; i < twotArr.Length; i++)
+            {
+                threeArr.Add(twotArr[i]);
+            }
+
+            threeArr.Sort();
+
+            foreach (var item in threeArr)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+        //Write a C# Sharp program to get a DateTime value that represents the current date and time 
+        //on the local computer. 
+
+        public static void GetDateTimes()
+        {
+
+            DateTime localDate = DateTime.Now;
+            DateTime utcDate = DateTime.UtcNow;
+            String[] cultureNames =
+            {
+                "en-JM", "en-NZ", "fr-BE",
+                "de-CH", "nl-NL"
+            };
+
+            foreach (var cultureName in cultureNames)
+            {
+                var culture = new CultureInfo(cultureName);
+                Console.WriteLine("{0}:", culture.NativeName);
+                Console.WriteLine("Local date and time: {0}, {1:G}", localDate.ToString(culture), localDate.Kind);
+                Console.WriteLine("UTC date and time: {0}, {1:G}\n",
+                    utcDate.ToString(culture), utcDate.Kind);
+            }
+        }
         /// <summary>
         /// /Files -------------------------------------------------------------------------------------
         /// </summary>
-        
+
 
         //Write a program in C# Sharp to create a blank file in the disk newly
         //
