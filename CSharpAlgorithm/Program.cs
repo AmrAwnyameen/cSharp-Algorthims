@@ -33,6 +33,9 @@ namespace CSharp
             //CheckRightmost();
             //ReverseArry();
             //result = ComputArryNums();
+            //RemoveStringChar();
+            //ArrayOfMultiplication();
+            //ReplacingFourCopies();
             //Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
 
@@ -43,6 +46,8 @@ namespace CSharp
         /// /Basics
         /// </summary>
         /// 
+        ///
+     
         // Write a C# Sharp program to create a new string of the characters at indexes 0,1, 4,5, 8,9 ... from a given string.
         private static void CreateIndexString()
         {
@@ -337,10 +342,39 @@ namespace CSharp
                 Console.Write(arrayResult[i]);
             }
         }
-        //Write a program in C# Sharp to read n number of 
-        //values in an array and display it in reverse order. Go to the editor
+        // Write a C# Sharp program to create a new list from a given list of integers where each integer
+        //value is added to 2 and the result value is multiplied by 5
 
-        public static void ReverseArray()
+        private static void ArrayOfMultiplication()
+        {
+            var myList = new List<int> { 1, 2, 3, 4, 5 };
+
+            var result = myList.Select(w => (w + 2) * 5).ToList();
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        //Write a C# Sharp program to create a new list from a given list of strings where
+        //each element is replaced by 4 copies of the string concatenated together
+        private static void ReplacingFourCopies()
+        {
+          var myList = new List<string> {"1","2","3","4"};
+
+            var result = myList.Select(w => (w+w+w+w)).ToList();
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        //Write a program in C# Sharp to read n number of 
+            //values in an array and display it in reverse order. Go to the editor
+
+            public static void ReverseArray()
         {
             int[] arr = new int[] { 2, 5, 7 };
             int[] arr2 = new int[arr.Length];
@@ -420,6 +454,18 @@ namespace CSharp
                 Console.WriteLine("   Local date and time: {0}, {1:G}", localDate.ToString(culture), localDate.Kind);
                 Console.WriteLine("   UTC date and time: {0}, {1:G}\n",
                     utcDate.ToString(culture), utcDate.Kind);
+            }
+        }
+        //  Write a C# Sharp program to remove all "a" in each string in given list of strings and return the new string
+        private static void RemoveStringChar()
+        {
+            var myList = new List<string> { "Norhan", "Mazen", "Yoras" };
+
+            var newString = myList.Select(s => s.Replace("a", "")).ToList();
+
+            foreach (var item in newString)
+            {
+                Console.WriteLine(item);
             }
         }
 
@@ -561,7 +607,7 @@ namespace CSharp
             }
             return number + SumNumbersReverse(number - 1);
         }
-       // Write a program in C# Sharp to convert a decimal number to binary using recursion
+        // Write a program in C# Sharp to convert a decimal number to binary using recursion
 
         public static int GetDigits(int n1, int nodigits)
         {
@@ -572,7 +618,7 @@ namespace CSharp
             return GetDigits(n1 / 10, nodigits);
 
         }
-       // Write a program in C to print even or odd numbers in a given range using recursion
+        // Write a program in C to print even or odd numbers in a given range using recursion
 
         public static int OddAndEven(int initValue, int number)
         {
