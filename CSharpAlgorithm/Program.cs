@@ -38,17 +38,11 @@ namespace CSharp
             //ReplacingFourCopies();
             //Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
-
-
         }
 
-        /// <summary>
-        /// /Basics
-        /// </summary>
-        /// 
-        ///
-     
+        #region Basics
         // Write a C# Sharp program to create a new string of the characters at indexes 0,1, 4,5, 8,9 ... from a given string.
+        //s
         private static void CreateIndexString()
         {
             Console.WriteLine("Please Enter Your string");
@@ -73,7 +67,6 @@ namespace CSharp
             }
             Console.ReadLine();
         }
-
         //Write a C# Sharp program to check if the first appearance of "a" 
         // in a given string is immediately followed by another "a"
         private static bool CheckCharApprenace()
@@ -96,10 +89,8 @@ namespace CSharp
             }
             return false;
         }
-
         //Write a C# Sharp program to compute the sum of the two given integer values.
         //If the two values are the same, then return triple their sum//
-
         private static int ComputeNumbers()
         {
             Console.WriteLine("Please Enter Two Numbers");
@@ -107,10 +98,8 @@ namespace CSharp
             var y = int.Parse(Console.ReadLine());
             return y == x ? (y + x) * 3 : y + x;
         }
-
         //   Write a C# Sharp program to get the absolute difference between n and 51.
         //If n is greater than 51 return triple the absolute difference
-
         private static int AbsoulteDiffrience()
         {
             const int constNumber = 51;
@@ -118,10 +107,8 @@ namespace CSharp
             var n = int.Parse(Console.ReadLine());
             return n > constNumber ? (n - 51) * 3 : constNumber - n;
         }
-
         //Write a C# Sharp program to remove the character in a given position of a given string.
         //The given position will be in the range 0.. string length -1 inclusive
-
         private static string RemoveChar()
         {
             Console.WriteLine("Please Enter Word");
@@ -137,7 +124,6 @@ namespace CSharp
 
             return "Please Enter Valid Position";
         }
-
         //Write a C# Sharp program to exchange the first and last characters 
         //in a given string and return the new string.
         private static string ExchangeCharchters()
@@ -154,11 +140,9 @@ namespace CSharp
             return lastCahr + wordBetweenChars + firstCahr;
 
         }
-
         //Write a C# Sharp program to create a new string taking the first 3 characters 
         //of a given string and return the string with the 3 characters added at both the front and back.
         //If the given string length is less than 3, use whatever characters are there.
-
         private static string CreateNewString()
         {
             Console.WriteLine("Please Enter string");
@@ -171,10 +155,8 @@ namespace CSharp
             }
             return "Please Enter Valid String";
         }
-
         //Write a C# Sharp program to check if a string 'yt' appears at index 1 in a given string. 
         //   If it appears return a string without 'yt' otherwise return the original string
-
         private static string IndexOfString()
         {
             Console.WriteLine("Please Enter Your string");
@@ -186,7 +168,6 @@ namespace CSharp
             }
             return word;
         }
-
         //Write a C# Sharp program to check the largest number
         //among three given integers
         private static void MaxtNumber()
@@ -211,7 +192,6 @@ namespace CSharp
             }
             Console.Write(string.Format("The Max  :  {0} , Min {1}", maxNumber, minNumber));
         }
-
         //Write a C# Sharp program to check which number nearest to the 
         //value [100] among two given integers. Return 0 if the two numbers are equal by using Max.Abs.
         private static int FindAbsNumber()
@@ -225,10 +205,8 @@ namespace CSharp
                 (Math.Abs(nValue - fistrNum) < Math.Abs(nValue - secondeNum)
                 ? fistrNum : secondeNum);
         }
-
         //Write a C# Sharp program to find the larger value from two positive integer values that
         //is in the range 20..30 inclusive, or return 0 if neither is in that range.
-
         private static void FindLargeValue()
         {
             Console.WriteLine("Please Enter First Number");
@@ -250,10 +228,8 @@ namespace CSharp
             }
 
         }
-
         //Write a C# Sharp program to count a substring of length 2 appears 
         //in a given string and also as the last 2 characters of the string. Do not count the end substring
-
         private static int CountOfTwoSubstring()
         {
             Console.WriteLine("Please Enter Your First string");
@@ -266,10 +242,8 @@ namespace CSharp
             }
             return 0;
         }
-
         //Write a C# Sharp program to test if a
         //given non-negative number is a multiple of 13 or it is one more than a multiple of 13 
-
         private static bool CheckModulo()
         {
             Console.WriteLine("Please Enter Your Number");
@@ -277,12 +251,10 @@ namespace CSharp
             var number = int.Parse(Console.ReadLine());
             return number % 13 == 0 ? true : false;
         }
-
         //Write a C# Sharp program to check whether
         //a given string starts with "F" or ends with "B". If the string starts with 
         //"F" return "Fizz" and return "Buzz" if it ends with "B" If the string starts with 
         //"F" and ends with "B" return "FizzBuzz". In other cases return the original string.
-
         private static string CheckWhether()
         {
             Console.WriteLine("Please Enter Your First string");
@@ -294,8 +266,8 @@ namespace CSharp
                 !firstChar.Equals("F") && lastChar.Equals("B") ? "Buzz" : word;
 
         }
-
         //Write a C# Sharp program to check if two or more non-negative given integers have the same rightmost digit.
+        //h
         private static bool CheckRightmost()
         {
             Console.WriteLine("Please Enter Your Number");
@@ -308,7 +280,7 @@ namespace CSharp
             return false;
         }
         //Write a C# Sharp program to compute the sum of the elements of an given array of integers. 
-
+        //
         private static int ComputArryNums()
         {
             int[] array = new int[] { 1, 2, 3, 4, 4 };
@@ -320,9 +292,8 @@ namespace CSharp
             }
             return sum;
         }
-
         //Write a C# Sharp program to reverse a given array of integers and length 5
-
+        //
         private static void ReverseArry()
         {
             int[] array = new int[] { 1, 2, 3, 4, 4, 8, 9, 8 };
@@ -344,7 +315,6 @@ namespace CSharp
         }
         // Write a C# Sharp program to create a new list from a given list of integers where each integer
         //value is added to 2 and the result value is multiplied by 5
-
         private static void ArrayOfMultiplication()
         {
             var myList = new List<int> { 1, 2, 3, 4, 5 };
@@ -356,7 +326,6 @@ namespace CSharp
                 Console.WriteLine(item);
             }
         }
-
         //Write a C# Sharp program to create a new list from a given list of strings where
         //each element is replaced by 4 copies of the string concatenated together
         private static void ReplacingFourCopies()
@@ -370,11 +339,9 @@ namespace CSharp
                 Console.WriteLine(item);
             }
         }
-
         //Write a program in C# Sharp to read n number of 
-            //values in an array and display it in reverse order. Go to the editor
-
-            public static void ReverseArray()
+          //values in an array and display it in reverse order. Go to the editor
+        public static void ReverseArray()
         {
             int[] arr = new int[] { 2, 5, 7 };
             int[] arr2 = new int[arr.Length];
@@ -394,10 +361,8 @@ namespace CSharp
                 Console.WriteLine(arr2[i]);
             }
         }
-
         //Write a program in C# Sharp to sort elements of array in ascending order. Go to the editor
         //Test Data : 
-
         public static void SortArray()
         {
             int[] arr = new[] { 2, 7, 4, 5, 9 };
@@ -421,9 +386,6 @@ namespace CSharp
             }
 
         }
-
-
-
         public static void DateYear()
         {
             DateTime dec31 = new DateTime(2000, 12, 31);
@@ -457,6 +419,7 @@ namespace CSharp
             }
         }
         //  Write a C# Sharp program to remove all "a" in each string in given list of strings and return the new string
+        //
         private static void RemoveStringChar()
         {
             var myList = new List<string> { "Norhan", "Mazen", "Yoras" };
@@ -468,10 +431,8 @@ namespace CSharp
                 Console.WriteLine(item);
             }
         }
-
         //Write a program in C# Sharp to merge two arrays of same size sorted in ascending order. Go to the editor
         //    Test Data : 
-
         public static void MergTwoArray()
         {
             int[] firstArr = new int[7] { 1, 4, 5, 6, 9, 3, 2 };
@@ -498,7 +459,6 @@ namespace CSharp
         }
         //Write a C# Sharp program to get a DateTime value that represents the current date and time 
         //on the local computer. 
-
         public static void GetDateTimes()
         {
 
@@ -519,14 +479,10 @@ namespace CSharp
                     utcDate.ToString(culture), utcDate.Kind);
             }
         }
-        /// <summary>
-        /// /Files -------------------------------------------------------------------------------------
-        /// </summary>
+        #endregion
 
-
+        #region Files
         //Write a program in C# Sharp to create a blank file in the disk newly
-        //
-
         public static void MakeFileName()
         {
             string fileName = @"E:\mytest3.txt";
@@ -544,7 +500,6 @@ namespace CSharp
             }
 
         }
-
         public static void WriteFileName()
         {
             string fileName = @"mytest2.txt";
@@ -567,10 +522,11 @@ namespace CSharp
             }
 
         }
-        /// <summary>
-        /// //Recursion -------------------------------------------------------------------------------
-        /// </summary>
+        #endregion
+
+        #region Recursion 
         // Write a program in C# Sharp to print the first n natural number using recursion
+        //
         public static void NaturalNumbers(int init, int number)
         {
             if (init < number)
@@ -584,7 +540,6 @@ namespace CSharp
                 Console.WriteLine("Finish Natural Numbers");
             }
         }
-
         static void NaturalNumbersReverse(int number)
         {
             if (number != 0)
@@ -598,7 +553,6 @@ namespace CSharp
                 Console.WriteLine("Finish Natural Numbers Reverse");
             }
         }
-
         public static int SumNumbersReverse(int number)
         {
             if (number == 0)
@@ -608,7 +562,6 @@ namespace CSharp
             return number + SumNumbersReverse(number - 1);
         }
         // Write a program in C# Sharp to convert a decimal number to binary using recursion
-
         public static int GetDigits(int n1, int nodigits)
         {
             if (n1 == 0)
@@ -619,7 +572,6 @@ namespace CSharp
 
         }
         // Write a program in C to print even or odd numbers in a given range using recursion
-
         public static int OddAndEven(int initValue, int number)
         {
 
@@ -645,7 +597,8 @@ namespace CSharp
             return OddAndEven(initValue, number);
 
         }
-
+        #endregion
+        
 
     }
 }
