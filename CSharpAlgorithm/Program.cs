@@ -14,18 +14,17 @@ namespace CSharp
         {
             dynamic result;
 
-            // result = ComputeNumbers(x, y);
+            //ComputeNumbers();
             //result = AbsoulteDiffrience();
-            // result = RemoveChar();
+            //result = RemoveChar();
             //result = ExchangeCharchters();
             //result = CreateNewString();
             //result = IndexOfString();
             //MaxtNumber();
             //result = FindAbsNumber();
-            // FindLargeValue();
-            //MakeFileName()
+            //FindLargeValue();
+            //MakeFileName();
             //result = CheckCharApprenace();
-            //result = countOfTwoSubstring();
             //CreateIndexString();
             //result = CheckModulo();
             //result = CheckWhether();
@@ -33,10 +32,14 @@ namespace CSharp
             //CheckRightmost();
             //ReverseArry();
             //result = ComputArryNums();
+            //AddExpressionToString();
             //RemoveStringChar();
             //ArrayOfMultiplication();
             //ReplacingFourCopies();
-            //Console.WriteLine(string.Format("The Result  :  {0}", result));
+            //AddExpressionToString();
+            //MultiPlicationArray();
+           // IsNumbersNextToEachOther();
+            // Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
         }
 
@@ -91,14 +94,28 @@ namespace CSharp
         }
         //Write a C# Sharp program to compute the sum of the two given integer values.
         //If the two values are the same, then return triple their sum//
-        private static int ComputeNumbers()
+        private static void ComputeNumbers()
         {
-            Console.WriteLine("Please Enter Two Numbers");
-            var x = int.Parse(Console.ReadLine());
-            var y = int.Parse(Console.ReadLine());
-            return y == x ? (y + x) * 3 : y + x;
+            try
+            {
+                Console.WriteLine("Please Enter Two Numbers");
+                var x = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter Seconde Number");
+                var y = int.Parse(Console.ReadLine());
+                var result = y == x ? (y + x) * 3 : y + x;
+                Console.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                if (e is FormatException)
+                {
+                    ComputeNumbers();
+                }
+
+            }
         }
-        //   Write a C# Sharp program to get the absolute difference between n and 51.
+
+        //Write a C# Sharp program to get the absolute difference between n and 51.
         //If n is greater than 51 return triple the absolute difference
         private static int AbsoulteDiffrience()
         {
@@ -330,9 +347,9 @@ namespace CSharp
         //each element is replaced by 4 copies of the string concatenated together
         private static void ReplacingFourCopies()
         {
-          var myList = new List<string> {"1","2","3","4"};
+            var myList = new List<string> { "1", "2", "3", "4" };
 
-            var result = myList.Select(w => (w+w+w+w)).ToList();
+            var result = myList.Select(w => (w + w + w + w)).ToList();
 
             foreach (var item in result)
             {
@@ -340,7 +357,7 @@ namespace CSharp
             }
         }
         //Write a program in C# Sharp to read n number of 
-          //values in an array and display it in reverse order. Go to the editor
+        //values in an array and display it in reverse order. Go to the editor
         public static void ReverseArray()
         {
             int[] arr = new int[] { 2, 5, 7 };
@@ -479,10 +496,64 @@ namespace CSharp
                     utcDate.ToString(culture), utcDate.Kind);
             }
         }
+        //Write a C# Sharp program to create a new list from a given list of strings 
+        //where each element has "#" added at the beginning and end position
+        private static void AddExpressionToString()
+        {
+            var myArr = new[] { "Amr", "1", "Abdo", "Mero" };
+            var resultArr = new List<string>();
+
+            for (int i = 0; i < myArr.Length; i++)
+            {
+                var retsult = "#" + myArr[i] + "#";
+                resultArr.Add(retsult);
+            }
+
+            foreach (var item in resultArr)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+        // Write a C# Sharp program to create a new list
+        //from a given list of integers where each integer
+        //multiplied by itself three times
+        private static void MultiPlicationArray()
+        {
+            var myArr = new List<int> { 1, 2, 3, 4, 5, };
+
+            var result = myArr.Select(s => s * s * s).ToList();
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        //Write a C# Sharp program to check a given array (length will be atleast 2) 
+        //of integers and return true if there are two values next to each other
+        private static bool IsNumbersNextToEachOther()
+        {
+            var myArr = new[] { 1, 2, 3, 6, 4, 15, 16, 18, 19, 19,19,19 };
+
+            for (int i = 0; i < myArr.Length; i++)
+            {
+                if (i == myArr.Length - 1)
+                {
+                    break;
+                }
+                if (myArr[i] == myArr[i + 1])
+                {
+                    Console.WriteLine("True");
+                }
+            }
+            return true;
+        }
+
         #endregion
 
         #region Files
         //Write a program in C# Sharp to create a blank file in the disk newly
+        //
         public static void MakeFileName()
         {
             string fileName = @"E:\mytest3.txt";
@@ -562,6 +633,7 @@ namespace CSharp
             return number + SumNumbersReverse(number - 1);
         }
         // Write a program in C# Sharp to convert a decimal number to binary using recursion
+        //
         public static int GetDigits(int n1, int nodigits)
         {
             if (n1 == 0)
@@ -572,6 +644,7 @@ namespace CSharp
 
         }
         // Write a program in C to print even or odd numbers in a given range using recursion
+        //
         public static int OddAndEven(int initValue, int number)
         {
 
@@ -598,7 +671,7 @@ namespace CSharp
 
         }
         #endregion
-        
+
 
     }
 }
