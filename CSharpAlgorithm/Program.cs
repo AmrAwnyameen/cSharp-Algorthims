@@ -13,7 +13,6 @@ namespace CSharp
         static void Main(string[] args)
         {
             dynamic result;
-
             //ComputeNumbers();
             //result = AbsoulteDiffrience();
             //result = RemoveChar();
@@ -38,7 +37,8 @@ namespace CSharp
             //ReplacingFourCopies();
             //AddExpressionToString();
             //MultiPlicationArray();
-           // IsNumbersNextToEachOther();
+            //IsNumbersNextToEachOther();
+            //ConvertNumberToBinary();
             // Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
         }
@@ -114,7 +114,6 @@ namespace CSharp
 
             }
         }
-
         //Write a C# Sharp program to get the absolute difference between n and 51.
         //If n is greater than 51 return triple the absolute difference
         private static int AbsoulteDiffrience()
@@ -533,7 +532,7 @@ namespace CSharp
         //of integers and return true if there are two values next to each other
         private static bool IsNumbersNextToEachOther()
         {
-            var myArr = new[] { 1, 2, 3, 6, 4, 15, 16, 18, 19, 19,19,19 };
+            var myArr = new[] { 1, 2, 3, 6, 4, 15, 16, 18, 19, 19, 19, 19 };
 
             for (int i = 0; i < myArr.Length; i++)
             {
@@ -548,6 +547,48 @@ namespace CSharp
             }
             return true;
         }
+        //Write a C# Sharp program that takes a decimal number
+        //as input and displays its equivalent in binary form
+        private static void ConvertNumberToBinary()
+        {
+            try
+            {
+                Console.WriteLine("Please enter Your decimal Number");
+                var number = Convert.ToDecimal(Console.ReadLine());
+                var result = new List<int>();
+                while (number > 0)
+                {
+                    if (number < 2)
+                    {
+                        result.Add(1);
+                        foreach (var item in result)
+                        {
+                            Console.Write(item);
+                        }
+                        Console.ReadLine();
+
+                    }
+                    var reminder = number % 2;
+                    var divid = (int)number / 2;
+                    if (reminder == 0)
+                    {
+                       result.Add(0);
+                    }
+                    else if(reminder != 0)
+                    {
+                        result.Add(1);
+                    }
+                    number = divid;
+                }
+               
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
+
 
         #endregion
 
