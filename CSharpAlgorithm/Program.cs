@@ -37,9 +37,13 @@ namespace CSharp
             //ReplacingFourCopies();
             //AddExpressionToString();
             //MultiPlicationArray();
+            //result = twoSum(10);
             //IsNumbersNextToEachOther();
-            //ConvertNumberToBinary();
-            // Console.WriteLine(string.Format("The Result  :  {0}", result));
+            // ConvertNumberToBinary();
+            //result = CheckElementInOfFirstElemnts();
+            // result = CheckSequence();
+            result = CountNumberOfStringsPositions();
+            Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
         }
 
@@ -553,34 +557,33 @@ namespace CSharp
         {
             try
             {
-                Console.WriteLine("Please enter Your decimal Number");
-                var number = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Please Enter Your Number");
+                var number = Convert.ToInt64(Console.ReadLine());
                 var result = new List<int>();
                 while (number > 0)
                 {
-                    if (number < 2)
+                    if (number == 1)
                     {
                         result.Add(1);
-                        foreach (var item in result)
-                        {
-                            Console.Write(item);
-                        }
-                        Console.ReadLine();
-
+                        break;
                     }
+                    var dividNumber = number / 2;
                     var reminder = number % 2;
-                    var divid = (int)number / 2;
-                    if (reminder == 0)
-                    {
-                       result.Add(0);
-                    }
-                    else if(reminder != 0)
+                    if (reminder != 0)
                     {
                         result.Add(1);
                     }
-                    number = divid;
+                    else
+                    {
+                        result.Add(0);
+                    }
+                    number = dividNumber;
                 }
-               
+                foreach (var item in result)
+                {
+                    Console.WriteLine(item);
+                }
+
             }
             catch (Exception e)
             {
@@ -589,9 +592,117 @@ namespace CSharp
 
         }
 
+        public static Tuple<int, int> TargeTuple(int target)
+        {
+            int indexOne = 0, indexTwo = 0;
+            var array = new[] { 1, 2, 3, 4, 5, 6, 7 };
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    var result = array[i] + array[j];
+                    if (result == target)
+                    {
+                        indexOne = Array.IndexOf(array, array[i]);
+                        indexTwo = Array.IndexOf(array, array[j]);
+                        break;
+                    }
+                }
+            }
+            return Tuple.Create(indexOne, indexTwo);
+        }
+        public static int[] twoSum(int target)
+        {
+            var nums = new[] { 1, 2, 3, 4, 5, 6, 7 };
+            int result = 0;
+            int[] arry = new int[2];
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var val = map.ContainsValue(target - nums[i]);
+                result = target - nums[i];
+                if (!val)
+                {
+                    map.Add(nums[i], i);
+                }
+                else
+                {
+                    arry[0] = result;
+                    arry[1] = i;
+                    break;
+                }
+            }
+
+            return arry;
+        }
+        // Write a C# Sharp program to check if one of the first 4 elements in an array of integers
+        //is equal to a given element.
+
+        private static string CheckElementInOfFirstElemnts()
+        {
+            try
+            {
+                Console.WriteLine("Enter Your Number");
+                int mynumber = int.Parse(Console.ReadLine());
+                var myarray = new List<int> { 1, 2, 5, 4, 6, 787, 99 };
+                return myarray.Count > 4 && myarray.Contains(mynumber) ? "This number founded in first elemnts" : "This number not founded in first elemnts";
+
+            }
+            catch (Exception e)
+            {
+                return CheckElementInOfFirstElemnts();
+            }
+        }
+
+        // Write a C# Sharp program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere
+        public static string CheckSequence()
+        {
+            int[] nums = { 1, 1, 2, 1, 2, 3 };
+            for (var i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3)
+                    return "true";
+            }
+            return "false";
+        }
+        //Write a C# Sharp program to compare two given strings and return the number of the positions where they contain the same length 2 substring
+
+        private static int CountNumberOfStringsPositions()
+        {
+            try
+            {
+                var count = 0;
+                Console.WriteLine("Plz enter your first string");
+                var firstString = Console.ReadLine().ToCharArray();
+                Console.WriteLine("Plz enter your seconde string ");
+                var secondeString = Console.ReadLine().ToCharArray();
+                if (firstString.Length > 0 && secondeString.Length > 0)
+                {
+                    for (int i = 0; i < firstString.Length; i++)
+                    {
+                        var positionOne = firstString[i];
+                        for (int j = i; j < secondeString.Length; j++)
+                        {
+                            var positionTwo = secondeString[j];
+                            if (positionOne.Equals(positionTwo))
+                            {
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                return count;
+
+            }
+            catch (Exception)
+            {
+                return CountNumberOfStringsPositions();
+            }
+        }
 
         #endregion
-
         #region Files
         //Write a program in C# Sharp to create a blank file in the disk newly
         //
@@ -634,8 +745,8 @@ namespace CSharp
             }
 
         }
-        #endregion
 
+        #endregion
         #region Recursion 
         // Write a program in C# Sharp to print the first n natural number using recursion
         //
