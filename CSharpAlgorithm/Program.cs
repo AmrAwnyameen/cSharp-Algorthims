@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -42,7 +42,8 @@ namespace CSharp
             // ConvertNumberToBinary();
             //result = CheckElementInOfFirstElemnts();
             // result = CheckSequence();
-            result = CountNumberOfStringsPositions();
+            //result = CountNumberOfStringsPositions();
+            result = CheckIfDigitAppear();
             Console.WriteLine(string.Format("The Result  :  {0}", result));
             Console.ReadLine();
         }
@@ -591,7 +592,6 @@ namespace CSharp
             }
 
         }
-
         public static Tuple<int, int> TargeTuple(int target)
         {
             int indexOne = 0, indexTwo = 0;
@@ -611,7 +611,7 @@ namespace CSharp
             }
             return Tuple.Create(indexOne, indexTwo);
         }
-        public static int[] twoSum(int target)
+        public static int[] TwoSum(int target)
         {
             var nums = new[] { 1, 2, 3, 4, 5, 6, 7 };
             int result = 0;
@@ -637,7 +637,6 @@ namespace CSharp
         }
         // Write a C# Sharp program to check if one of the first 4 elements in an array of integers
         //is equal to a given element.
-
         private static string CheckElementInOfFirstElemnts()
         {
             try
@@ -653,8 +652,8 @@ namespace CSharp
                 return CheckElementInOfFirstElemnts();
             }
         }
-
-        // Write a C# Sharp program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere
+        // Write a C# Sharp program to check whether the sequence of 
+        //numbers 1, 2, 3 appears in a given array of integers somewhere
         public static string CheckSequence()
         {
             int[] nums = { 1, 1, 2, 1, 2, 3 };
@@ -665,8 +664,8 @@ namespace CSharp
             }
             return "false";
         }
-        //Write a C# Sharp program to compare two given strings and return the number of the positions where they contain the same length 2 substring
-
+        //Write a C# Sharp program to compare two given strings
+        //and return the number of the positions where they contain the same length 2 substring
         private static int CountNumberOfStringsPositions()
         {
             try
@@ -701,14 +700,56 @@ namespace CSharp
                 return CountNumberOfStringsPositions();
             }
         }
+        //Write a C# Sharp program to find the larger from two given integers.
+        ////However if the two integers have the same remainder when divided by 7, 
+        ////    then the return the smaller integer. If the two integers are the same, return 0
+        public int FindLargestNumber()
+        {
+            Console.WriteLine("Please Enter first number");
+            int firstNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please Enter seconde number");
+            int secondeNumber = int.Parse(Console.ReadLine());
+            var smallerNumber = Math.Min(firstNumber, secondeNumber);
+            return firstNumber == secondeNumber ? 0 :
+                 (firstNumber % 7 == secondeNumber % 7) ? smallerNumber : 0;
+
+        }
+        //Write a C# Sharp program to check two given integers, each in the range 10..99.
+        ////    Return true if a digit appears in both numbers, such as the 3 in 13 and 33
+        public static bool CheckIfDigitAppear()
+        {
+            try
+            {
+
+                Console.WriteLine("Please Enter first number");
+                int firstNumber = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter seconde number");
+                int secondeNumber = int.Parse(Console.ReadLine());
+                var checkIsRange = Enumerable.Range(10, 99).Contains(firstNumber) && Enumerable.Range(10, 99).Contains(secondeNumber);
+
+                if (checkIsRange)
+                {
+                    var result = (firstNumber % 10 == secondeNumber % 10) || (firstNumber % 10 == secondeNumber / 10)
+                         || (secondeNumber % 10 == firstNumber / 10);
+
+                    return result;
+                }
+                return false;
+                
+            }
+            catch (Exception e)
+            {
+               return CheckIfDigitAppear();
+            }
+        }
 
         #endregion
+
         #region Files
         //Write a program in C# Sharp to create a blank file in the disk newly
         //
         public static void MakeFileName()
         {
-            string fileName = @"E:\mytest3.txt";
             try
             {
                 Console.Write("\n\n Create a file named mytest.txt in the disk :\n");
@@ -717,9 +758,9 @@ namespace CSharp
                 File.WriteAllText(@"E:\mytest.txt7", "Root");
 
             }
-            catch (Exception MyExcep)
+            catch (Exception ex)
             {
-                Console.WriteLine(MyExcep.ToString());
+                Console.WriteLine(ex.ToString());
             }
 
         }
@@ -747,6 +788,7 @@ namespace CSharp
         }
 
         #endregion
+
         #region Recursion 
         // Write a program in C# Sharp to print the first n natural number using recursion
         //
